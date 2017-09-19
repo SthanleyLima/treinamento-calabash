@@ -1,22 +1,12 @@
 Dado(/^que estou na tela de login$/) do
-      element_exists("* text:'Curso Calabash'")
+      @page = page(LoginScreen)
   end
   
-  Quando(/^eu preencher o campo usuario$/) do
-    enter_text "* id:'login_edtUsuario'", "calabash@curso.com"
-    hide_soft_keyboard()
-  end
-  
-  Quando(/^eu preencher o campo senha$/) do
-    enter_text "* id:'login_edtSenha'", "senha12345"
-    hide_soft_keyboard()
-  end
-  
-  Quando(/^acionar o botao login$/) do
-    touch("* id:'button_entrar'")
+  Quando(/^preencho os dados com valores válidos de um usuário$/) do
+    @page.login
   end
   
   Entao(/^devo ver a mensagem "([^"]*)"$/) do |arg1|
-    element_exists("* text:'Logado com sucesso'")
+    @page.contem_mensagem_sucesso
   end
   
