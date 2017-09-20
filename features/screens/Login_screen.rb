@@ -5,18 +5,19 @@ class LoginScreen < BaseClass
   element(:senha)         {'editText_Senha'}
   element(:bt_entrar)     {'button_entrar'}
 
-def login
-  keyboard_enter_text('login_edtUsuario', "calabash@curso.com")
+def login(user,pass)
+  sleep(0.5)
+  keyboard_enter_text('login_edtUsuario', user)
   hide_soft_keyboard()
-  keyboard_enter_text('login_edtSenha', "senha12345")
+  keyboard_enter_text('login_edtSenha', pass)
   hide_soft_keyboard()
   tap_on bt_entrar
 end
 
 def contem_mensagem_sucesso
-  is_alert_exist_with_text("Logado sem sucesso")
-  sleep(0.5)
+  is_alert_exist_with_text("Logado com sucesso")
 end
+
 end
 
 

@@ -37,10 +37,10 @@ class BaseClass
   end
 
   def is_alert_exist_with_text(text)
-    unless query("Alert marked:':'#{text}'", :timeout => 5).empty?
+    unless query("view marked:':'#{text}'", :timeout => 5).empty?
       return true
     else
-      screenshot_and_raise "could not find the text '#{text}' in alert view"
+      screenshot_and_raise "Não foi encontrado o texto '#{text}'"
     end
   end
  
