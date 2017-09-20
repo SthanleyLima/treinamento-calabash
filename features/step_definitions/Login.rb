@@ -6,7 +6,7 @@ Dado(/^que estou na tela de login$/) do
     @page.login
   end
   
-  Entao(/^devo ver a mensagem "([^"]*)"$/) do |arg1|
-    @page.contem_mensagem_sucesso
+  Entao(/^devo ver a mensagem logado com sucesso$/) do
+    fail "Não foi possivel logar!!" unless @page.contem_mensagem_sucesso
   end
   

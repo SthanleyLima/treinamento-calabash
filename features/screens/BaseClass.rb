@@ -35,6 +35,14 @@ class BaseClass
   def wait_for_element(element)
     wait_for { exists?(element) }
   end
+
+  def is_alert_exist_with_text(text)
+    unless query("Alert marked:':'#{text}'", :timeout => 5).empty?
+      return true
+    else
+      screenshot_and_raise "could not find the text '#{text}' in alert view"
+    end
+  end
  
   def self.element(name, &block)
     define_method(name.to_s, &block)
